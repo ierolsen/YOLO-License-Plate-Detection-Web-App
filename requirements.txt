@@ -1,2 +1,8 @@
 opencv-python
 tensorflow-gpu
+jupyter
+notebook
+pandas
+matplotlib
+lxml
+scikit-learn

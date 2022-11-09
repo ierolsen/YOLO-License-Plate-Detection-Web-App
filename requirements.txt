@@ -6,3 +6,4 @@ pandas
 matplotlib
 lxml
 scikit-learn
+pytesseract

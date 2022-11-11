@@ -48,7 +48,7 @@ def OCR(path, filename):
     xmin, xmax, ymin, ymax = coords[0]
     roi = img[ymin:ymax, xmin:xmax]
     roi_bgr = cv2.cvtColor(roi, cv2.COLOR_RGB2BGR)
-    cv2.imwrite(f"static/roi{filename}", roi_bgr)
+    cv2.imwrite(f"static/roi/{filename}", roi_bgr)
     text = pt.image_to_string(roi)
     print(text)
     return text

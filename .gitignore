@@ -5,6 +5,7 @@ __pycache__/
 
 dataset
 logs
+static
 
 # C extensions
 *.so

@@ -2,7 +2,7 @@ import numpy as np
 import cv2
 import matplotlib.pyplot as plt
 import tensorflow as tf
-from tensorflow.keras.preprocessing import load_img, img_to_array
+from tensorflow.keras.preprocessing.image import load_img, img_to_array
 import pytesseract as pt
 
 model = tf.keras.models.load_model("static/models/object_detection.h5")
@@ -48,6 +48,7 @@ def OCR(path, filename):
     xmin, xmax, ymin, ymax = coords[0]
     roi = img[ymin:ymax, xmin:xmax]
     roi_bgr = cv2.cvtColor(roi, cv2.COLOR_RGB2BGR)
-    cv2.imwrite(f"static/roi{filename}", roi)
+    cv2.imwrite(f"static/roi{filename}", roi_bgr)
     text = pt.image_to_string(roi)
     print(text)
+    return text

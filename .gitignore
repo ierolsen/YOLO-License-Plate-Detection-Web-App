@@ -6,6 +6,8 @@ __pycache__/
 dataset
 logs
 static
+data_images
+Model
 
 # C extensions
 *.so

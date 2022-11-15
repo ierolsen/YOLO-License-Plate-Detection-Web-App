@@ -52,3 +52,4 @@ def OCR(path, filename):
     text = pt.image_to_string(roi)
     print(text)
     return text
+

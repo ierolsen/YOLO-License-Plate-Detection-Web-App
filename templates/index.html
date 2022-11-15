@@ -1,52 +1,50 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-
-    <!--UPLOAD FORM-->
     <div class="container">
         <br><br>
         <form action="#" method="POST" enctype="multipart/form-data">
             <div class="input-group">
                 <input type="file" class="form-control" name="image_name" required>
-                <input type="submit" value="Upload" class="btn btn-outline-dark">
+                <input type="submit" value="Upload" class="btn btn-outline-secondary">
             </div>
         </form>
     </div>
 
-    
     {% if upload %}
-        <div class="contaier">
+        <div class="container">
             <br><br>
             <table>
                 <tr>
                     <td>
-                        <img class="rounded float-left img-fluit" src="static/upload/{{ upload_image }}" width:400 height="400" alt="">
+                        <img class="rounded float-left img-fluid" src="/static/upload/{{ upload_image }}" alt="">
                     </td>
                     <td>
-                        <img class="rounded float-right img-fluit" src="static/predict/{{ upload_image }}" width:400 height="400" alt="">
+                        <img class="rounded float-right img-fluid" src="/static/predict/{{ upload_image }}" alt="">
                     </td>
                 </tr>
-            </table>
 
+            </table>
             <br>
-
-            <table style="border: solid black; width:100%;">
+            <table style="border: solid black; width: 100%;">
                 <tr style="border: solid black;">
-                    <th>Cropped Licence Plate Image</th>
-                    <th>Text</th>
+                    <th>Number of Licence Plate Detected = {{no}}</th>
                 </tr>
-                <tr style="border: solid black;">
-                    <td>
-                        <img class="img-fluid" src="static/roi/{{ upload_image }}" alt="">
+                
+                    {% for lic in text %}
+                    <tr style="border: solid black;">
+                    <td style="background-color: greenyellow;">
+                        <p class="display-8"> {{ lic }}</p>
                     </td>
-                    <td style="background-color:darkorange;">
-                        <h1 class="display-8">{{ text }}</h1>
-                    </td>
-                </tr>
+                    </tr>
+                    {% endfor %}
+                
             </table>
-        </div>
-    {% endif %}
-        
 
-{% endblock %}
+        </div>
     
+    
+    
+    {% endif %}
+
+{% endblock  %}

@@ -17,11 +17,9 @@ def index():
         filename = upload_file.filename
         path_save = os.path.join(UPLOAD_PATH,filename)
         upload_file.save(path_save)
-        text_list = object_detection(path_save,filename)
-        
-        print(text_list)
+        text = OCR(path_save, filename)
 
-        return render_template('index.html',upload=True,upload_image=filename,text=text_list,no=len(text_list))
+        return render_template("index.html", upload=True, upload_image=filename, text=text)
 
     return render_template('index.html',upload=False)
 
